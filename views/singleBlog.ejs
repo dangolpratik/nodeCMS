@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog Post</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        
+        nav {
+            display: flex;
+            justify-content: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin: 20px 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+            background-color: #333;
+        }
+
+        .author-name {
+            font-weight: bold;
+        }
+
+        .post-content {
+            line-height: 1.6;
+        }
+
+        .post-footer {
+            margin-top: 20px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Blog CMS</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/createBlog">Add Blog</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="author-info">
+     
+            <div class="author-name"><h1><%- blogs[0].title %></h1></div>
+        </div>
+        <div class="author-name"><h3><%- blogs[0].subtitle %></h3></div>
+
+        <div class="post-content">
+            <%- blogs[0].description %>
+        </div>
+
+        <div class="post-footer">
+            <small><i>
+                Published on: <%- blogs[0].createdAt.toISOString().slice(0,10) %> &nbsp; | &nbsp;
+                Last Updated on: <%- blogs[0].updatedAt.toISOString().slice(0,10) %>
+            </i</small>
+        </div>
+    </div>
+</body>
+</html>
