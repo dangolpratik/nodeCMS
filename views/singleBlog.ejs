@@ -98,6 +98,9 @@
                 Published on: <%- blogs[0].createdAt.toISOString().slice(0,10) %> &nbsp; | &nbsp;
                 Last Updated on: <%- blogs[0].updatedAt.toISOString().slice(0,10) %>
             </i</small>
+            <br />
+            <button><a href="/delete/<%- blogs[0].id %>">Delete</a></button>
+            <button><a href="/edit/<%- blogs[0].id %>">Edit</a></button>
         </div>
     </div>
 </body>

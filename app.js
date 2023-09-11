@@ -59,6 +59,59 @@ app.get('/single/:id', async(req,res)=>{
     res.render("singleBlog",{blogs:blog})
 })
 
+//to delete post
+app.get('/delete/:id', async(req,res)=>{
+    
+    //get id of clicked blog post
+    const id = req.params.id
+
+    //delete post of given id post
+    await blogs.destroy({
+       where : {
+        id: id
+       }
+    })
+
+    res.redirect("/")
+})
+
+//to edit post
+app.get('/edit/:id', async(req,res)=>{
+    
+    //get id of clicked blog post
+    const id = req.params.id
+
+    //get data of given id post
+    const blog = await blogs.findAll({
+       where : {
+        id: id
+       }
+    })
+
+    res.render("editBlog",{blogs:blog})
+})
+
+//creating blog post
+app.post('/editBlog/:id', async(req, res)=>{
+    
+    //get id of clicked blog post
+    const id = req.params.id
+    const title = req.body.title
+    const subtitle = req.body.subtitle
+    const description = req.body.description
+   // const {title, subtitle, description} = req.body
+
+   await blogs.update({
+        title: title,
+        subtitle : subtitle,
+        description : description
+    },{
+        where : {
+            id: id
+        }
+    }) 
+    res.redirect('/')
+})
 
 
 app.listen(3000, ()=>{

@@ -74,6 +74,10 @@
     </header>
 
     <div class="container">
+        <% if (blogs.length < 1){ %>
+            <h1>No Posts</h1>
+        <% } %>
+
        <% blogs.length > 0 && blogs.forEach((blog)=>{ %>
             <div class="card">
                 <h2><%- blog.title %></h2>
