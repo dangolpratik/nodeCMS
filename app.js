@@ -114,6 +114,10 @@ app.post('/editBlog/:id', async(req, res)=>{
 })
 
 
+//to make access for external css
+app.use(express.static("public/"))
+
+
 app.listen(3000, ()=>{
     console.log("NodeJS project has started")
 })
